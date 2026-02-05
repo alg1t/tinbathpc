@@ -1,15 +1,19 @@
-import { neon, neonConfig } from "@neondatabase/serverless";
+import { Pool, neonConfig } from "@neondatabase/serverless";
 import { PrismaNeon } from "@prisma/adapter-neon";
 import { PrismaClient } from "@prisma/client";
 import ws from "ws";
 
-// Enable WebSocket mode for Neon (required for Netlify)
+// Force WebSocket mode (required for Netlify)
 neonConfig.webSocketConstructor = ws;
+neonConfig.useSecureWebSocket = true;
+neonConfig.pipelineTLS = true;
+neonConfig.pipelineConnect = true;
 
-const sql = neon(process.env.DATABASE_URL!);
+const pool = new Pool({ connectionString: process.env.DATABASE_URL! });
 
-// Prisma adapter using Neon WebSocket client
-const adapter = new PrismaNeon(sql);
+const adapter = new PrismaNeon(pool);
+
+
 
 // Extends the PrismaClient with a custom result transformer to convert the price and rating fields to strings.
 export const prisma = new PrismaClient({ adapter }).$extends({
