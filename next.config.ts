@@ -1,3 +1,4 @@
+
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
@@ -8,19 +9,14 @@ const nextConfig: NextConfig = {
         hostname: "utfs.io",
         port: "",
       },
-    ], 
-    
-    eslint: {
+    ],
+  },
+
+  eslint: {
     ignoreDuringBuilds: true,
   },
 
-
-  },
-  /* config options here */
-
-
-
-  
+  /* other config options here */
 };
 
 export default nextConfig;
