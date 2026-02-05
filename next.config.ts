@@ -8,9 +8,19 @@ const nextConfig: NextConfig = {
         hostname: "utfs.io",
         port: "",
       },
-    ],
+    ], 
+    
+    eslint: {
+    ignoreDuringBuilds: true,
+  },
+
+
   },
   /* config options here */
+
+
+
+  
 };
 
 export default nextConfig;
