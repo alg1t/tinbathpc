@@ -7,7 +7,7 @@ import ws from "ws";
 neonConfig.webSocketConstructor = ws;
 neonConfig.useSecureWebSocket = true;
 neonConfig.pipelineTLS = true;
-neonConfig.pipelineConnect = true;
+
 
 const pool = new Pool({ connectionString: process.env.DATABASE_URL! });
 
