@@ -4,14 +4,15 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+  
     "start": "next start",
     "lint": "next lint",
     "postinstall": "prisma generate",
     "test": "jest",
     "test:watch": "jest --watch",
-    "email": "cp .env ./node_modules/react-email && email dev --dir email --port 3001","build":"prisma generate && prisma migrate deploy && next build",
-"dev": "next dev"
+    "email": "cp .env ./node_modules/react-email && email dev --dir email --port 3001",
+    "build":"prisma generate && prisma migrate deploy && next build",
+
   },
   "dependencies": {
     "@auth/core": "0.37.4",
